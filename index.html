@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luis Esteban Cárdenas Osorio | Estrategia Comercial, Liderazgo & Coaching</title>
+    
+    <!-- Metadatos SEO y Redes Sociales -->
+    <meta name="description" content="Sitio oficial de Luis Esteban Cárdenas Osorio. Consultor en Estrategia Comercial, Gerencia Financiera y Coach de Liderazgo Organizacional con PNL.">
+    <meta property="og:title" content="Luis Esteban Cárdenas Osorio | Estrategia Comercial & Coaching">
+    <meta property="og:description" content="Impulsando el crecimiento comercial y el liderazgo de equipos con visión estratégica y humana.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://luisestebanco.github.io/luisestebanco/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fuentes Google: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = {
             theme: {
@@ -19,10 +32,12 @@
                         brand: {
                             50: '#f0f6fe',
                             100: '#ddecfd',
+                            500: '#2563eb',
                             600: '#1d4ed8',
                             700: '#1e40af',
                             800: '#1e3a8a',
                             900: '#0f172a',
+                            dark: '#090d16',
                             accent: '#0d9488'
                         }
                     }
@@ -30,38 +45,79 @@
             }
         }
     </script>
+    
     <style>
+        /* Estilos de animación personalizados */
         .glass-nav {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(14px);
+        }
+        
+        /* Animación suave de entrada */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hover lift cards */
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -10px rgba(30, 64, 175, 0.12);
+        }
+
+        /* Barra de progreso de lectura */
+        #scroll-progress {
+            height: 3px;
+            background: linear-gradient(to right, #1d4ed8, #0d9488);
+            width: 0%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            transition: width 0.1s ease;
         }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-blue-100 selection:text-blue-900">
 
-    <!-- BARRA DE NAVEGACIÓN -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-200/80 transition-all duration-300">
+    <!-- BARRA DE PROGRESO DE LECTURA -->
+    <div id="scroll-progress"></div>
+
+    <!-- ENCABEZADO / NAVBAR -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-200/80 transition-all duration-300 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <a href="#inicio" class="flex flex-col">
-                    <span class="text-xl font-extrabold tracking-tight text-slate-900">Luis Esteban Cárdenas</span>
-                    <span class="text-xs font-semibold text-blue-700 tracking-wider uppercase">Estrategia Comercial · Coaching · Liderazgo</span>
+                <a href="#inicio" class="flex flex-col group">
+                    <span class="text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-blue-700 transition">Luis Esteban Cárdenas</span>
+                    <span class="text-[11px] font-bold text-blue-700 tracking-wider uppercase">Estrategia Comercial · Coaching · Liderazgo</span>
                 </a>
 
-                <!-- Menú Desktop -->
+                <!-- Navegación Desktop -->
                 <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600">
                     <a href="#inicio" class="hover:text-blue-700 transition">Inicio</a>
                     <a href="#servicios" class="hover:text-blue-700 transition">Servicios</a>
-                    <a href="#articulos" class="hover:text-blue-700 transition">Artículos & Ideas</a>
+                    <a href="#metodologia" class="hover:text-blue-700 transition">Metodología</a>
+                    <a href="#articulos" class="hover:text-blue-700 transition">Artículos</a>
                     <a href="#sobre-mi" class="hover:text-blue-700 transition">Trayectoria</a>
-                    <a href="#contacto" class="inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-blue-700 text-white font-medium shadow-sm hover:bg-blue-800 transition">
+                    <a href="#faq" class="hover:text-blue-700 transition">Preguntas</a>
+                    <a href="#contacto" class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl bg-blue-700 text-white font-medium shadow-md shadow-blue-700/20 hover:bg-blue-800 hover:shadow-lg transition">
                         Contactar
                     </a>
                 </nav>
 
                 <!-- Botón Mobile -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="p-2 text-slate-700 hover:text-blue-700 focus:outline-none" aria-label="Abrir Menú">
+                    <button id="mobile-menu-btn" class="p-2.5 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none" aria-label="Abrir Menú">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -71,94 +127,105 @@
         </div>
 
         <!-- Menú Mobile Desplegable -->
-        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 bg-white px-4 pt-2 pb-6 space-y-3">
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 bg-white px-5 pt-3 pb-6 space-y-3">
             <a href="#inicio" class="block py-2 text-base font-semibold text-slate-700 hover:text-blue-700">Inicio</a>
             <a href="#servicios" class="block py-2 text-base font-semibold text-slate-700 hover:text-blue-700">Servicios</a>
-            <a href="#articulos" class="block py-2 text-base font-semibold text-slate-700 hover:text-blue-700">Artículos & Ideas</a>
+            <a href="#metodologia" class="block py-2 text-base font-semibold text-slate-700 hover:text-blue-700">Metodología</a>
+            <a href="#articulos" class="block py-2 text-base font-semibold text-slate-700 hover:text-blue-700">Artículos</a>
             <a href="#sobre-mi" class="block py-2 text-base font-semibold text-slate-700 hover:text-blue-700">Trayectoria</a>
-            <a href="#contacto" class="block text-center w-full py-3 mt-2 rounded-lg bg-blue-700 text-white font-semibold">Contactar</a>
+            <a href="#faq" class="block py-2 text-base font-semibold text-slate-700 hover:text-blue-700">Preguntas</a>
+            <a href="#contacto" class="block text-center w-full py-3 mt-2 rounded-xl bg-blue-700 text-white font-bold">Contactar</a>
         </div>
     </header>
 
     <main class="pt-20">
-        <!-- SECCIÓN HERO (PORTADA) -->
+        <!-- SECCIÓN HERO CON FOTO AMBIENTAL Y ANIMACIÓN -->
         <section id="inicio" class="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-slate-100 py-20 lg:py-28">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Efecto sutil de fondo -->
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-blue-100/50 blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-teal-100/40 blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                     
-                    <div class="lg:col-span-7 space-y-6">
-                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-blue-800 text-xs font-bold uppercase tracking-wider">
-                            <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
-                            Marca Personal & Consultoría Estratégica
+                    <!-- Columna de Texto -->
+                    <div class="lg:col-span-7 space-y-6 reveal-on-scroll">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-blue-800 text-xs font-bold tracking-wide uppercase shadow-sm">
+                            <span class="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse"></span>
+                            Consultoría Comercial & Coaching de Alto Impacto
                         </div>
                         
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
-                            Transformando el potencial de <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-teal-600">equipos comerciales</span> en resultados sostenibles.
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+                            Transformando equipos comerciales en motores de <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-teal-600">crecimiento sostenible.</span>
                         </h1>
                         
-                        <p class="text-lg text-slate-600 leading-relaxed max-w-2xl">
-                            Profesional en Administración de Empresas con especialización en Gerencia Financiera y formación de posgrado en Coaching y Liderazgo Organizacional. Acompaño a organizaciones y líderes a estructurar ventas de alto impacto y cohesionar equipos con propósito.
+                        <p class="text-lg text-slate-600 leading-relaxed max-w-2xl font-normal">
+                            Integro el rigor analítico de la <strong>Administración y la Gerencia Financiera</strong> con metodologías de <strong>Coaching Ejecutivo y Programación Neurolingüística (PNL)</strong> para alinear propósitos humanos con metas de negocio rentables.
                         </p>
 
                         <div class="flex flex-wrap gap-4 pt-2">
-                            <a href="#servicios" class="px-6 py-3.5 rounded-xl bg-blue-700 text-white font-semibold shadow-md shadow-blue-700/20 hover:bg-blue-800 hover:shadow-lg transition">
+                            <a href="#servicios" class="px-7 py-4 rounded-xl bg-blue-700 text-white font-bold shadow-lg shadow-blue-700/25 hover:bg-blue-800 hover:shadow-xl hover:-translate-y-0.5 transition duration-200">
                                 Explorar Servicios
                             </a>
-                            <a href="#articulos" class="px-6 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-700 font-semibold hover:bg-slate-50 hover:border-slate-400 transition">
-                                Leer Artículos & Reflexiones
+                            <a href="#articulos" class="px-7 py-4 rounded-xl bg-white border border-slate-300 text-slate-700 font-bold hover:bg-slate-50 hover:border-slate-400 hover:-translate-y-0.5 transition duration-200 shadow-sm">
+                                Leer Artículos & Ideas
                             </a>
                         </div>
 
-                        <!-- Cifras / Indicadores de impacto -->
+                        <!-- Métricas / Contadores animados -->
                         <div class="pt-8 border-t border-slate-200/80 grid grid-cols-3 gap-6">
-                            <div>
-                                <p class="text-3xl font-extrabold text-slate-900">+15</p>
-                                <p class="text-xs text-slate-500 font-medium mt-0.5">Años de experiencia comercial</p>
+                            <div class="space-y-1">
+                                <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 counter" data-target="15">+15</p>
+                                <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Años de experiencia</p>
                             </div>
-                            <div>
-                                <p class="text-3xl font-extrabold text-slate-900">PNL</p>
-                                <p class="text-xs text-slate-500 font-medium mt-0.5">& Coaching de Equipos</p>
+                            <div class="space-y-1">
+                                <p class="text-3xl sm:text-4xl font-extrabold text-blue-700">PNL</p>
+                                <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Coaching & Equipos</p>
                             </div>
-                            <div>
-                                <p class="text-3xl font-extrabold text-slate-900">BIU</p>
-                                <p class="text-xs text-slate-500 font-medium mt-0.5">Posgrado en Coaching & Liderazgo</p>
+                            <div class="space-y-1">
+                                <p class="text-3xl sm:text-4xl font-extrabold text-teal-700">BIU</p>
+                                <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Maestría Coaching</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="lg:col-span-5 relative">
-                        <div class="relative mx-auto max-w-sm rounded-3xl bg-gradient-to-tr from-blue-700 to-teal-600 p-1.5 shadow-2xl">
-                            <div class="rounded-[22px] bg-slate-900 overflow-hidden text-white p-8 space-y-6">
-                                <div class="w-16 h-16 rounded-2xl bg-blue-600/30 border border-blue-400/30 flex items-center justify-center text-blue-300 font-bold text-2xl">
-                                    LC
-                                </div>
-                                <div>
-                                    <h3 class="text-2xl font-bold">Luis Esteban Cárdenas O.</h3>
-                                    <p class="text-slate-400 text-sm mt-1">Consultor Empresarial & Coach de Liderazgo</p>
-                                </div>
-                                <div class="space-y-3 text-sm text-slate-300 pt-2 border-t border-slate-800">
-                                    <div class="flex items-center gap-3">
-                                        <svg class="w-5 h-5 text-teal-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                        <span>Estrategia y Diagnóstico Comercial</span>
+                    <!-- Columna Visual: Imagen representativa y Tarjeta de perfil -->
+                    <div class="lg:col-span-5 relative reveal-on-scroll">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 group">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Estrategia Comercial y Coaching de Equipos" class="w-full h-72 object-cover opacity-80 group-hover:scale-105 transition duration-700 ease-out">
+                            
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent"></div>
+
+                            <div class="relative p-6 sm:p-8 space-y-4 -mt-16 bg-slate-950/90 backdrop-blur-md rounded-t-3xl border-t border-slate-800">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-600 to-teal-500 flex items-center justify-center text-white font-extrabold text-xl shadow-lg shrink-0">
+                                        LC
                                     </div>
-                                    <div class="flex items-center gap-3">
-                                        <svg class="w-5 h-5 text-teal-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                        <span>Programación Neurolingüística (PNL)</span>
-                                    </div>
-                                    <div class="flex items-center gap-3">
-                                        <svg class="w-5 h-5 text-teal-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                        <span>Alineación de Objetivos SMARTER</span>
-                                    </div>
-                                    <div class="flex items-center gap-3">
-                                        <svg class="w-5 h-5 text-teal-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                        <span>Gerencia Financiera Aplicada</span>
+                                    <div>
+                                        <h3 class="text-xl font-extrabold text-white">Luis Esteban Cárdenas</h3>
+                                        <p class="text-xs font-semibold text-teal-400">Asesor Empresarial & Coach de Liderazgo</p>
+                                        <p class="text-[11px] text-slate-400">Antioquia, Colombia</p>
                                     </div>
                                 </div>
-                                <div class="pt-4">
-                                    <a href="#contacto" class="block text-center w-full py-3 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold transition">
-                                        Agendar Conversación
-                                    </a>
+
+                                <div class="space-y-2 text-xs text-slate-300 pt-2 border-t border-slate-800/80">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-teal-400">✓</span>
+                                        <span>Diagnóstico y optimización de ventas B2B</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-teal-400">✓</span>
+                                        <span>Metodología SMARTER de alineación de objetivos</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-teal-400">✓</span>
+                                        <span>Desarrollo de competencias con PNL</span>
+                                    </div>
                                 </div>
+
+                                <a href="#contacto" class="block text-center w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-teal-500 text-white font-bold text-xs tracking-wide uppercase hover:from-blue-500 hover:to-teal-400 transition shadow-lg shadow-blue-600/30">
+                                    Agendar Sesión Diagnóstica
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -167,85 +234,100 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 1: SERVICIOS PROFESIONALES -->
-        <section id="servicios" class="py-20 bg-white">
+        <!-- SECCIÓN 1: SERVICIOS CON IMÁGENES DEDICADAS -->
+        <section id="servicios" class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                    <span class="text-xs font-bold uppercase tracking-widest text-blue-700 bg-blue-50 px-3 py-1 rounded-full">Portafolio de Soluciones</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Servicios diseñados para elevar el rendimiento comercial y humano</h2>
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-on-scroll">
+                    <span class="text-xs font-bold uppercase tracking-widest text-blue-700 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200/50">Propuesta de Valor</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Soluciones integradas para elevar el rendimiento comercial y humano</h2>
                     <p class="text-slate-600 text-base sm:text-lg">
-                        Combinamos rigor analítico y financiero con metodologías de coaching y PNL para generar resultados sostenibles en el tiempo.
+                        Diseñadas para gerencias, directores y fuerzas de venta que buscan metas ambiciosas sin descuidar la cohesión y el bienestar del equipo.
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Servicio 1 -->
-                    <div class="rounded-2xl border border-slate-200 bg-slate-50/50 p-8 flex flex-col justify-between hover:border-blue-300 hover:shadow-xl hover:shadow-blue-700/5 transition duration-300">
-                        <div class="space-y-4">
-                            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xl">
-                                01
+                    <div class="card-hover rounded-3xl border border-slate-200 bg-white overflow-hidden shadow-sm flex flex-col justify-between reveal-on-scroll">
+                        <div>
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Estrategia Comercial" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                                <div class="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md text-white font-bold text-xs px-3 py-1 rounded-full">
+                                    01 · Estrategia
+                                </div>
                             </div>
-                            <h3 class="text-xl font-bold text-slate-900">Estrategia Comercial & Diagnóstico Empresarial</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed">
-                                Análisis integral del modelo de ventas, embudos de conversión, perfil de clientes y fijación de metas con metodología SMARTER para maximizar la efectividad comercial.
-                            </p>
-                            <ul class="space-y-2.5 text-xs text-slate-600 pt-3 border-t border-slate-200">
-                                <li class="flex items-center gap-2">✓ Auditoría de procesos y canales de venta</li>
-                                <li class="flex items-center gap-2">✓ Estructuración de KPIs y metas alcanzables</li>
-                                <li class="flex items-center gap-2">✓ Optimización del pipeline comercial B2B</li>
-                            </ul>
+                            <div class="p-7 space-y-4">
+                                <h3 class="text-xl font-bold text-slate-900 leading-snug">Estrategia Comercial & Diagnóstico Empresarial</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    Evaluación exhaustiva de los canales de prospección, embudos de conversión y estructuración de metas SMARTER para evitar la dispersión de esfuerzos.
+                                </p>
+                                <div class="pt-3 border-t border-slate-100 space-y-2 text-xs text-slate-600 font-medium">
+                                    <p class="flex items-center gap-2"><span class="text-blue-600 font-bold">•</span> Auditoría del proceso de ventas B2B</p>
+                                    <p class="flex items-center gap-2"><span class="text-blue-600 font-bold">•</span> Fijación de indicadores líderes y rezagados</p>
+                                    <p class="flex items-center gap-2"><span class="text-blue-600 font-bold">•</span> Rediseño de protocolos de atención y cierre</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="pt-6 mt-6 border-t border-slate-200">
-                            <a href="#contacto" class="text-sm font-bold text-blue-700 hover:text-blue-800 inline-flex items-center gap-1.5">
+                        <div class="p-7 pt-0">
+                            <a href="#contacto" class="w-full inline-flex items-center justify-center py-3 px-4 rounded-xl bg-slate-100 hover:bg-blue-50 text-blue-700 font-bold text-xs transition">
                                 Solicitar diagnóstico comercial →
                             </a>
                         </div>
                     </div>
 
-                    <!-- Servicio 2 -->
-                    <div class="rounded-2xl border-2 border-blue-600 bg-white p-8 flex flex-col justify-between shadow-xl shadow-blue-700/10 relative">
-                        <div class="absolute -top-3 right-6 bg-blue-600 text-white text-[11px] font-extrabold uppercase tracking-wider py-1 px-3 rounded-full">
-                            Enfoque Clave
+                    <!-- Servicio 2 (Destacado) -->
+                    <div class="card-hover rounded-3xl border-2 border-blue-600 bg-white overflow-hidden shadow-xl shadow-blue-700/10 flex flex-col justify-between relative reveal-on-scroll">
+                        <div class="absolute top-3 right-3 z-10 bg-blue-600 text-white text-[11px] font-extrabold uppercase tracking-wider py-1 px-3 rounded-full shadow-md">
+                            Enfoque Central
                         </div>
-                        <div class="space-y-4">
-                            <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-xl">
-                                02
+                        <div>
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Coaching de Equipos" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                                <div class="absolute top-4 left-4 bg-blue-900/90 backdrop-blur-md text-white font-bold text-xs px-3 py-1 rounded-full">
+                                    02 · Liderazgo
+                                </div>
                             </div>
-                            <h3 class="text-xl font-bold text-slate-900">Coaching de Equipos & Liderazgo Comercial</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed">
-                                Intervenciones grupales e individuales para transformar directores y vendedores en líderes autogestionados, aplicando Programación Neurolingüística y coaching organizacional.
-                            </p>
-                            <ul class="space-y-2.5 text-xs text-slate-600 pt-3 border-t border-slate-200">
-                                <li class="flex items-center gap-2">✓ Desarrollo de mentalidad de alto rendimiento</li>
-                                <li class="flex items-center gap-2">✓ Cartografía mental y superación de bloqueos</li>
-                                <li class="flex items-center gap-2">✓ Comunicación asertiva y negociación consultiva</li>
-                            </ul>
+                            <div class="p-7 space-y-4">
+                                <h3 class="text-xl font-bold text-slate-900 leading-snug">Coaching de Equipos & Liderazgo con PNL</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    Acompañamiento individual y grupal para líderes y ejecutivos. Trabajamos mentalidad, cartografía mental, comunicación asertiva y resolución de bloqueos comerciales.
+                                </p>
+                                <div class="pt-3 border-t border-slate-100 space-y-2 text-xs text-slate-600 font-medium">
+                                    <p class="flex items-center gap-2"><span class="text-blue-600 font-bold">•</span> Programas de liderazgo orientado al coach</p>
+                                    <p class="flex items-center gap-2"><span class="text-blue-600 font-bold">•</span> Negociación y rapport consultivo con PNL</p>
+                                    <p class="flex items-center gap-2"><span class="text-blue-600 font-bold">•</span> Dinámica de motivación y cohesión de equipo</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="pt-6 mt-6 border-t border-slate-200">
-                            <a href="#contacto" class="text-sm font-bold text-blue-700 hover:text-blue-800 inline-flex items-center gap-1.5">
-                                Planear programa de coaching →
+                        <div class="p-7 pt-0">
+                            <a href="#contacto" class="w-full inline-flex items-center justify-center py-3 px-4 rounded-xl bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs transition shadow-md shadow-blue-700/20">
+                                Iniciar programa de coaching →
                             </a>
                         </div>
                     </div>
 
                     <!-- Servicio 3 -->
-                    <div class="rounded-2xl border border-slate-200 bg-slate-50/50 p-8 flex flex-col justify-between hover:border-blue-300 hover:shadow-xl hover:shadow-blue-700/5 transition duration-300">
-                        <div class="space-y-4">
-                            <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-800 flex items-center justify-center font-bold text-xl">
-                                03
+                    <div class="card-hover rounded-3xl border border-slate-200 bg-white overflow-hidden shadow-sm flex flex-col justify-between reveal-on-scroll">
+                        <div>
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" alt="Gestión Financiera Comercial" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                                <div class="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md text-white font-bold text-xs px-3 py-1 rounded-full">
+                                    03 · Finanzas
+                                </div>
                             </div>
-                            <h3 class="text-xl font-bold text-slate-900">Gestión Financiera Comercial & Rentabilidad</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed">
-                                Alineación entre la fuerza de ventas y los márgenes financieros de la empresa. Diseño de esquemas de comisiones, evaluación de costos y cálculo del ROI en iniciativas comerciales.
-                            </p>
-                            <ul class="space-y-2.5 text-xs text-slate-600 pt-3 border-t border-slate-200">
-                                <li class="flex items-center gap-2">✓ Modelado de comisiones e incentivos alineados</li>
-                                <li class="flex items-center gap-2">✓ Análisis de rentabilidad por cliente y producto</li>
-                                <li class="flex items-center gap-2">✓ Medición del ROI en programas de capacitación</li>
-                            </ul>
+                            <div class="p-7 space-y-4">
+                                <h3 class="text-xl font-bold text-slate-900 leading-snug">Gestión Financiera Comercial & Rentabilidad</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    Alineación entre el volumen de ventas y el margen de utilidad. Estructuración de esquemas de comisiones sanos y medición del retorno (ROI) en iniciativas comerciales.
+                                </p>
+                                <div class="pt-3 border-t border-slate-100 space-y-2 text-xs text-slate-600 font-medium">
+                                    <p class="flex items-center gap-2"><span class="text-teal-600 font-bold">•</span> Modelado de comisiones e incentivos sostenibles</p>
+                                    <p class="flex items-center gap-2"><span class="text-teal-600 font-bold">•</span> Rentabilidad y margen por línea de producto</p>
+                                    <p class="flex items-center gap-2"><span class="text-teal-600 font-bold">•</span> Medición financiera del impacto de capacitación</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="pt-6 mt-6 border-t border-slate-200">
-                            <a href="#contacto" class="text-sm font-bold text-teal-700 hover:text-teal-800 inline-flex items-center gap-1.5">
+                        <div class="p-7 pt-0">
+                            <a href="#contacto" class="w-full inline-flex items-center justify-center py-3 px-4 rounded-xl bg-slate-100 hover:bg-teal-50 text-teal-800 font-bold text-xs transition">
                                 Consultar asesoría financiera →
                             </a>
                         </div>
@@ -254,195 +336,340 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 2: CENTRO DE CONTENIDOS Y ARTÍCULOS (MARCA PERSONAL) -->
-        <section id="articulos" class="py-20 bg-slate-100/70 border-y border-slate-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-                    <div class="space-y-3">
-                        <span class="text-xs font-bold uppercase tracking-widest text-blue-700 bg-blue-50 px-3 py-1 rounded-full">Espacio de Conocimiento</span>
-                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Artículos, Metodologías y Reflexiones</h2>
-                        <p class="text-slate-600 max-w-xl text-base">
-                            Ideas prácticas sobre coaching, liderazgo y estrategia comercial que iremos alimentando continuamente.
+        <!-- SECCIÓN 2: METODOLOGÍA EN 4 ETAPAS -->
+        <section id="metodologia" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-4 reveal-on-scroll">
+                    <span class="text-xs font-bold uppercase tracking-widest text-teal-400 bg-teal-900/40 px-3.5 py-1.5 rounded-full border border-teal-500/30">Paso a Paso</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Cómo trabajamos juntos</h2>
+                    <p class="text-slate-400 text-base">
+                        Un marco de intervención probado que asegura claridad, compromiso y seguimiento constante.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Paso 1 -->
+                    <div class="bg-slate-800/60 border border-slate-700/80 p-6 rounded-2xl space-y-4 relative card-hover reveal-on-scroll">
+                        <div class="w-10 h-10 rounded-xl bg-blue-600/30 text-blue-400 font-extrabold flex items-center justify-center text-lg border border-blue-500/30">1</div>
+                        <h4 class="text-lg font-bold text-white">Diagnóstico Integral</h4>
+                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                            Analizamos cifras, estructura del embudo, dinámicas del equipo y bloqueos actuales en el proceso de venta.
                         </p>
                     </div>
 
-                    <!-- Filtro interactivo de categorías -->
-                    <div class="flex flex-wrap gap-2 text-xs font-semibold">
-                        <button class="px-3.5 py-2 rounded-lg bg-blue-700 text-white shadow-sm">Todos</button>
-                        <button class="px-3.5 py-2 rounded-lg bg-white text-slate-600 border border-slate-300 hover:bg-slate-50">Liderazgo & PNL</button>
-                        <button class="px-3.5 py-2 rounded-lg bg-white text-slate-600 border border-slate-300 hover:bg-slate-50">Estrategia Comercial</button>
+                    <!-- Paso 2 -->
+                    <div class="bg-slate-800/60 border border-slate-700/80 p-6 rounded-2xl space-y-4 relative card-hover reveal-on-scroll">
+                        <div class="w-10 h-10 rounded-xl bg-teal-600/30 text-teal-400 font-extrabold flex items-center justify-center text-lg border border-teal-500/30">2</div>
+                        <h4 class="text-lg font-bold text-white">Diseño SMARTER</h4>
+                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                            Fijamos metas específicas co-construidas con el equipo, con hitos claros y métricas de proceso medibles.
+                        </p>
+                    </div>
+
+                    <!-- Paso 3 -->
+                    <div class="bg-slate-800/60 border border-slate-700/80 p-6 rounded-2xl space-y-4 relative card-hover reveal-on-scroll">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-600/30 text-indigo-400 font-extrabold flex items-center justify-center text-lg border border-indigo-500/30">3</div>
+                        <h4 class="text-lg font-bold text-white">Coaching & PNL</h4>
+                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                            Sesiones de entrenamiento y coaching para transformar mentalidad, mejorar la escucha activa y optimizar cierres.
+                        </p>
+                    </div>
+
+                    <!-- Paso 4 -->
+                    <div class="bg-slate-800/60 border border-slate-700/80 p-6 rounded-2xl space-y-4 relative card-hover reveal-on-scroll">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-600/30 text-emerald-400 font-extrabold flex items-center justify-center text-lg border border-emerald-500/30">4</div>
+                        <h4 class="text-lg font-bold text-white">Medición & ROI</h4>
+                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                            Seguimiento semanal de avances, ajuste ágil de desviaciones y verificación del retorno financiero generado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: ARTÍCULOS & MARCA PERSONAL (CON IMÁGENES Y FILTROS) -->
+        <section id="articulos" class="py-24 bg-slate-100/80 border-b border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6 reveal-on-scroll">
+                    <div class="space-y-3">
+                        <span class="text-xs font-bold uppercase tracking-widest text-blue-700 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200/60">Marca Personal & Conocimiento</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Artículos, Metodologías e Ideas</h2>
+                        <p class="text-slate-600 max-w-xl text-base">
+                            Reflexiones prácticas sobre coaching de equipos, liderazgo comercial y gerencia estratégica que alimentamos periódicamente.
+                        </p>
+                    </div>
+
+                    <!-- Filtros interactivos -->
+                    <div class="flex flex-wrap gap-2 text-xs font-bold" id="article-filters">
+                        <button class="filter-btn px-4 py-2 rounded-xl bg-blue-700 text-white shadow-sm transition" data-filter="all">Todos</button>
+                        <button class="filter-btn px-4 py-2 rounded-xl bg-white text-slate-600 border border-slate-300 hover:bg-slate-50 transition" data-filter="metodologia">Metodología</button>
+                        <button class="filter-btn px-4 py-2 rounded-xl bg-white text-slate-600 border border-slate-300 hover:bg-slate-50 transition" data-filter="pnl">PNL & Coaching</button>
+                        <button class="filter-btn px-4 py-2 rounded-xl bg-white text-slate-600 border border-slate-300 hover:bg-slate-50 transition" data-filter="liderazgo">Liderazgo</button>
                     </div>
                 </div>
 
                 <!-- Grilla de Artículos -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Artículo 1 -->
-                    <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between">
-                        <div class="p-6 space-y-4">
-                            <div class="flex items-center justify-between text-xs text-slate-400">
-                                <span class="text-blue-700 font-bold uppercase tracking-wider">Metodología</span>
-                                <span>5 min de lectura</span>
+                    
+                    <!-- Artículo 1 (Completo y activo) -->
+                    <article class="article-card card-hover bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between reveal-on-scroll" data-category="metodologia">
+                        <div>
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" alt="Método SMARTER" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                                <span class="absolute top-4 left-4 bg-blue-700 text-white text-[11px] font-extrabold uppercase tracking-wider py-1 px-3 rounded-full">
+                                    Metodología
+                                </span>
                             </div>
-                            <h3 class="text-lg font-bold text-slate-900 hover:text-blue-700 transition cursor-pointer">
-                                El Método SMARTER: Cómo definir metas comerciales que realmente movilicen al equipo
-                            </h3>
-                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                                Más allá del tradicional SMART, agregar la evaluación continua (Evaluated) y la recompensa/revisión (Rewarded) transforma metas frías en compromisos compartidos.
-                            </p>
+                            <div class="p-7 space-y-3">
+                                <span class="text-xs text-slate-400 font-medium">5 min de lectura · Septiembre 2026</span>
+                                <h3 class="text-lg font-bold text-slate-900 leading-snug hover:text-blue-700 transition">
+                                    El Método SMARTER: Cómo transformar metas comerciales en compromisos reales del equipo
+                                </h3>
+                                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                    Por qué el modelo SMART tradicional resulta insuficiente en ventas y cómo la evaluación continua y la recompensa marcan el éxito sostenible.
+                                </p>
+                            </div>
                         </div>
-                        <div class="px-6 pb-6 pt-3 border-t border-slate-100 flex items-center justify-between">
-                            <span class="text-xs text-slate-400">Por Luis Esteban Cárdenas</span>
-                            <a href="#contacto" class="text-xs font-bold text-blue-700 hover:underline">Leer artículo →</a>
+                        <div class="p-7 pt-0 flex items-center justify-between border-t border-slate-100 mt-4 pt-4">
+                            <span class="text-xs font-semibold text-slate-500">Por Luis Esteban Cárdenas</span>
+                            <a href="articulo_smarter.html" class="inline-flex items-center gap-1 text-xs font-bold text-blue-700 hover:text-blue-800 group">
+                                <span>Leer artículo completo</span>
+                                <span class="group-hover:translate-x-1 transition">→</span>
+                            </a>
                         </div>
                     </article>
 
                     <!-- Artículo 2 -->
-                    <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between">
-                        <div class="p-6 space-y-4">
-                            <div class="flex items-center justify-between text-xs text-slate-400">
-                                <span class="text-teal-700 font-bold uppercase tracking-wider">PNL & Coaching</span>
-                                <span>6 min de lectura</span>
+                    <article class="article-card card-hover bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between reveal-on-scroll" data-category="pnl">
+                        <div>
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80" alt="PNL y Negociación" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                                <span class="absolute top-4 left-4 bg-teal-700 text-white text-[11px] font-extrabold uppercase tracking-wider py-1 px-3 rounded-full">
+                                    PNL & Coaching
+                                </span>
                             </div>
-                            <h3 class="text-lg font-bold text-slate-900 hover:text-blue-700 transition cursor-pointer">
-                                El mapa no es el territorio: PNL aplicada a la negociación y venta consultiva
-                            </h3>
-                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                                Cómo comprender los filtros cognitivos del cliente y usar el rapport para generar confianza genuina antes de presentar cualquier propuesta de valor.
-                            </p>
+                            <div class="p-7 space-y-3">
+                                <span class="text-xs text-slate-400 font-medium">6 min de lectura</span>
+                                <h3 class="text-lg font-bold text-slate-900 leading-snug hover:text-teal-700 transition">
+                                    El mapa no es el territorio: PNL aplicada a la negociación y venta consultiva
+                                </h3>
+                                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                    Cómo comprender los filtros cognitivos del cliente para generar un rapport auténtico antes de presentar cualquier propuesta de valor.
+                                </p>
+                            </div>
                         </div>
-                        <div class="px-6 pb-6 pt-3 border-t border-slate-100 flex items-center justify-between">
-                            <span class="text-xs text-slate-400">Por Luis Esteban Cárdenas</span>
-                            <a href="#contacto" class="text-xs font-bold text-blue-700 hover:underline">Leer artículo →</a>
+                        <div class="p-7 pt-0 flex items-center justify-between border-t border-slate-100 mt-4 pt-4">
+                            <span class="text-xs font-semibold text-slate-500">Por Luis Esteban Cárdenas</span>
+                            <a href="#contacto" class="inline-flex items-center gap-1 text-xs font-bold text-teal-700 hover:text-teal-800 group">
+                                <span>Próximamente</span>
+                                <span class="group-hover:translate-x-1 transition">→</span>
+                            </a>
                         </div>
                     </article>
 
                     <!-- Artículo 3 -->
-                    <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between">
-                        <div class="p-6 space-y-4">
-                            <div class="flex items-center justify-between text-xs text-slate-400">
-                                <span class="text-blue-700 font-bold uppercase tracking-wider">Liderazgo</span>
-                                <span>4 min de lectura</span>
+                    <article class="article-card card-hover bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between reveal-on-scroll" data-category="liderazgo">
+                        <div>
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Liderazgo Comercial" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                                <span class="absolute top-4 left-4 bg-indigo-700 text-white text-[11px] font-extrabold uppercase tracking-wider py-1 px-3 rounded-full">
+                                    Liderazgo
+                                </span>
                             </div>
-                            <h3 class="text-lg font-bold text-slate-900 hover:text-blue-700 transition cursor-pointer">
-                                De Director a Coach: La evolución necesaria en la gestión de equipos comerciales
-                            </h3>
-                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                                Las preguntas poderosas y la escucha activa superan al control autoritario: claves para construir equipos de ventas autónomos y resilientes.
-                            </p>
+                            <div class="p-7 space-y-3">
+                                <span class="text-xs text-slate-400 font-medium">4 min de lectura</span>
+                                <h3 class="text-lg font-bold text-slate-900 leading-snug hover:text-indigo-700 transition">
+                                    De Director a Coach: La evolución necesaria en la gestión de equipos comerciales
+                                </h3>
+                                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                    Por qué las preguntas poderosas y la escucha activa superan al control autoritario para forjar equipos comerciales autónomos.
+                                </p>
+                            </div>
                         </div>
-                        <div class="px-6 pb-6 pt-3 border-t border-slate-100 flex items-center justify-between">
-                            <span class="text-xs text-slate-400">Por Luis Esteban Cárdenas</span>
-                            <a href="#contacto" class="text-xs font-bold text-blue-700 hover:underline">Leer artículo →</a>
+                        <div class="p-7 pt-0 flex items-center justify-between border-t border-slate-100 mt-4 pt-4">
+                            <span class="text-xs font-semibold text-slate-500">Por Luis Esteban Cárdenas</span>
+                            <a href="#contacto" class="inline-flex items-center gap-1 text-xs font-bold text-indigo-700 hover:text-indigo-800 group">
+                                <span>Próximamente</span>
+                                <span class="group-hover:translate-x-1 transition">→</span>
+                            </a>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN 3: SOBRE MÍ / TRAYECTORIA -->
-        <section id="sobre-mi" class="py-20 bg-white">
+        <!-- SECCIÓN 4: SOBRE MÍ Y PILARES PROFESIONALES -->
+        <section id="sobre-mi" class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <div class="lg:col-span-6 space-y-6">
-                        <span class="text-xs font-bold uppercase tracking-widest text-blue-700 bg-blue-50 px-3 py-1 rounded-full">Trayectoria Profesional</span>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                    
+                    <div class="lg:col-span-6 space-y-6 reveal-on-scroll">
+                        <span class="text-xs font-bold uppercase tracking-widest text-blue-700 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200/50">Trayectoria y Formación</span>
                         <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                            Solidez técnica, visión comercial y pasión por el desarrollo de personas
+                            Solidez analítica, experiencia en terreno y vocación por el desarrollo humano
                         </h2>
                         <p class="text-slate-600 leading-relaxed text-base">
-                            Cuento con cerca de 15 años de trayectoria profesional en el área comercial y empresarial, participando activamente en el diagnóstico, crecimiento y fortalecimiento de organizaciones en la región de Antioquia y Colombia.
+                            Con más de 15 años de trayectoria profesional en el área comercial, he liderado estrategias de posicionamiento y asesoría a organizaciones en Antioquia y Colombia, acompañando a equipos a superar sus metas sin sacrificar la calidad de las relaciones humanas.
                         </p>
                         <p class="text-slate-600 leading-relaxed text-base">
-                            Mi enfoque integra la rigurosidad analítica de la <strong>Administración de Empresas</strong> y la <strong>Gerencia Financiera</strong> con metodologías avanzadas de <strong>Coaching y Programación Neurolingüística (PNL)</strong> cursadas en mis estudios de posgrado en Broward International University (BIU). Creo firmemente que las metas financieras y comerciales sólo se sostienen cuando los equipos están verdaderamente comprometidos y capacitados.
+                            Mi enfoque integra la solidez financiera de la <strong>Administración de Empresas</strong> con la especialización en <strong>Gerencia Financiera</strong> y los estudios de maestría en <strong>Coaching y Liderazgo Organizacional</strong> en Broward International University (BIU Miami). Esta dualidad me permite dialogar con la misma fluidez con una junta directiva sobre márgenes de rentabilidad que con un asesor sobre sus barreras de mentalidad.
                         </p>
 
-                        <div class="grid grid-cols-2 gap-4 pt-4">
-                            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
-                                <p class="text-xs text-slate-500 font-semibold uppercase">Formación Académica</p>
-                                <p class="text-sm font-bold text-slate-900 mt-1">Admón. de Empresas & Especialista en Gerencia Financiera</p>
-                                <p class="text-xs text-blue-700 mt-0.5">Estudios de Maestría en BIU University</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
+                                <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Perfil Académico</p>
+                                <p class="text-sm font-bold text-slate-900 mt-1">Admón. de Empresas & Finanzas</p>
+                                <p class="text-xs text-blue-700 font-semibold mt-0.5">Posgrado en Coaching BIU</p>
                             </div>
-                            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
-                                <p class="text-xs text-slate-500 font-semibold uppercase">Enfoque Metodológico</p>
-                                <p class="text-sm font-bold text-slate-900 mt-1">Coaching Ejecutivo & PNL Aplicada</p>
-                                <p class="text-xs text-teal-700 mt-0.5">Metodología SMARTER y Dinámica de Equipos</p>
+                            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
+                                <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Especialidad</p>
+                                <p class="text-sm font-bold text-slate-900 mt-1">Coaching de Equipos & PNL</p>
+                                <p class="text-xs text-teal-700 font-semibold mt-0.5">Venta Consultiva B2B</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="lg:col-span-6">
-                        <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-950 text-white rounded-3xl p-8 sm:p-10 shadow-xl space-y-6">
-                            <h3 class="text-2xl font-extrabold tracking-tight">Pilares de Trabajo</h3>
+                    <div class="lg:col-span-6 reveal-on-scroll">
+                        <div class="bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white rounded-3xl p-8 sm:p-10 shadow-2xl space-y-8 relative overflow-hidden border border-slate-800">
+                            <h3 class="text-2xl font-extrabold tracking-tight">Pilares de Acción</h3>
                             
-                            <div class="space-y-4">
-                                <div class="flex gap-4">
-                                    <div class="w-10 h-10 rounded-xl bg-blue-600/30 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold shrink-0">1</div>
-                                    <div>
-                                        <h4 class="font-bold text-white text-base">Rigor y Viabilidad Financiera</h4>
-                                        <p class="text-slate-400 text-xs sm:text-sm mt-1">Cada meta comercial y plan de incentivos se diseña garantizando el margen, el retorno sobre la inversión y la sostenibilidad del negocio.</p>
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-2xl bg-blue-600/30 border border-blue-500/30 flex items-center justify-center text-blue-400 font-extrabold text-lg shrink-0">1</div>
+                                    <div class="space-y-1">
+                                        <h4 class="font-bold text-white text-base">Viabilidad y Rendimiento Financiero</h4>
+                                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">Toda meta comercial y esquema de incentivos debe respaldar el margen operativo y garantizar un retorno claro de inversión.</p>
                                     </div>
                                 </div>
-                                <div class="flex gap-4">
-                                    <div class="w-10 h-10 rounded-xl bg-teal-600/30 border border-teal-500/30 flex items-center justify-center text-teal-400 font-bold shrink-0">2</div>
-                                    <div>
-                                        <h4 class="font-bold text-white text-base">Humanismo y Comunicación con PNL</h4>
-                                        <p class="text-slate-400 text-xs sm:text-sm mt-1">Entendemos la mentalidad de los equipos para alinear motivaciones personales con los objetivos estratégicos de la empresa.</p>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-2xl bg-teal-600/30 border border-teal-500/30 flex items-center justify-center text-teal-400 font-extrabold text-lg shrink-0">2</div>
+                                    <div class="space-y-1">
+                                        <h4 class="font-bold text-white text-base">Comunicación Asertiva y PNL</h4>
+                                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">Comprender los mapas mentales del cliente y del colaborador para alinear intereses genuinos y desbloquear acuerdos comerciales.</p>
                                     </div>
                                 </div>
-                                <div class="flex gap-4">
-                                    <div class="w-10 h-10 rounded-xl bg-indigo-600/30 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-bold shrink-0">3</div>
-                                    <div>
-                                        <h4 class="font-bold text-white text-base">Acción y Medición Práctica</h4>
-                                        <p class="text-slate-400 text-xs sm:text-sm mt-1">No nos quedamos en teoría: establecemos indicadores de avance, revisiones periódicas y planes de acción concretos.</p>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-2xl bg-indigo-600/30 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-extrabold text-lg shrink-0">3</div>
+                                    <div class="space-y-1">
+                                        <h4 class="font-bold text-white text-base">Ejecución y Coaching Semanal</h4>
+                                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">No nos quedamos en teorías abstractas: establecemos rutinas de seguimiento, revisión de indicadores líderes y celebración de victorias.</p>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 5: PREGUNTAS FRECUENTES (FAQ INTERACTIVO) -->
+        <section id="faq" class="py-20 bg-slate-50 border-t border-slate-200">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div class="text-center space-y-3 reveal-on-scroll">
+                    <span class="text-xs font-bold uppercase tracking-widest text-blue-700 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200/50">Preguntas Frecuentes</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Dudas habituales sobre los servicios</h2>
+                </div>
+
+                <div class="space-y-4" id="faq-container">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-sm">
+                        <button class="faq-btn w-full p-6 text-left flex items-center justify-between font-bold text-slate-900 text-base focus:outline-none">
+                            <span>¿A qué tipo de empresas o sectores van dirigidos los servicios?</span>
+                            <span class="faq-icon text-blue-700 font-extrabold text-xl transition-transform duration-200">+</span>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+                            Los servicios están diseñados para empresas medianas y en crecimiento, organizaciones comerciales B2B y directores de ventas que buscan profesionalizar sus procesos comerciales, consolidar liderazgos empáticos y aumentar la efectividad de sus equipos.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-sm">
+                        <button class="faq-btn w-full p-6 text-left flex items-center justify-between font-bold text-slate-900 text-base focus:outline-none">
+                            <span>¿Cómo se diferencia el coaching comercial con PNL de una capacitación tradicional?</span>
+                            <span class="faq-icon text-blue-700 font-extrabold text-xl transition-transform duration-200">+</span>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+                            Una capacitación tradicional suele ser informativa y puntual. El coaching con PNL trabaja a nivel de creencias, hábitos y patrones de comunicación del asesor, facilitando un cambio de comportamiento sostenido en el tiempo y co-construyendo las soluciones desde la realidad de cada equipo.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-sm">
+                        <button class="faq-btn w-full p-6 text-left flex items-center justify-between font-bold text-slate-900 text-base focus:outline-none">
+                            <span>¿Las sesiones de asesoría y coaching son presenciales o virtuales?</span>
+                            <span class="faq-icon text-blue-700 font-extrabold text-xl transition-transform duration-200">+</span>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+                            Contamos con modalidad híbrida: presencial en la región de Antioquia (Medellín, Apartadó y Urabá) y virtual para todo el territorio nacional o internacional, adaptándonos a la disponibilidad de tu equipo.
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN 4: CONTACTO Y AGENDAMIENTO -->
-        <section id="contacto" class="py-20 bg-slate-900 text-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-3xl mx-auto text-center space-y-4 mb-12">
-                    <span class="text-xs font-bold uppercase tracking-widest text-teal-400 bg-teal-900/40 px-3 py-1 rounded-full border border-teal-700/50">Hablemos de tus proyectos</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Iniciemos una conversación profesional</h2>
+        <!-- SECCIÓN 6: CONTACTO PROFESIONAL CON FORMSPREE Y WHATSAPP -->
+        <section id="contacto" class="py-24 bg-slate-950 text-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <div class="max-w-3xl mx-auto text-center space-y-4 mb-14 reveal-on-scroll">
+                    <span class="text-xs font-bold uppercase tracking-widest text-teal-400 bg-teal-950/60 px-3.5 py-1.5 rounded-full border border-teal-500/30">Iniciemos una Conversación</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Hablemos de tus metas comerciales y de equipo</h2>
                     <p class="text-slate-400 text-base">
-                        Ya sea para explorar una asesoría comercial, estructurar un taller de coaching para tu equipo o colaborar en contenidos empresariales, déjame tus datos.
+                        Cuéntame brevemente el desafío que enfrenta tu organización y coordinemos una sesión inicial de diagnóstico.
                     </p>
                 </div>
 
-                <div class="max-w-xl mx-auto bg-slate-800/80 border border-slate-700 p-8 rounded-2xl shadow-2xl space-y-6">
-                    <form onsubmit="event.preventDefault(); alert('¡Gracias por tu mensaje! Me pondré en contacto contigo a la brevedad.');" class="space-y-4">
+                <div class="max-w-xl mx-auto bg-slate-900 border border-slate-800 p-8 sm:p-10 rounded-3xl shadow-2xl space-y-6 reveal-on-scroll">
+                    
+                    <!-- FORMULARIO DE CONTACTO CONECTADO A FORMSPREE -->
+                    <form id="contact-form" action="https://formspree.io/f/TU_CODIGO_AQUI" method="POST" class="space-y-4">
+                        <input type="hidden" name="_subject" value="Nuevo contacto profesional desde tu Sitio Web">
+                        
                         <div>
-                            <label class="block text-xs font-semibold text-slate-300 mb-1">Nombre Completo</label>
-                            <input type="text" required placeholder="Ej. Carlos Restrepo" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 text-sm">
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Nombre Completo</label>
+                            <input type="text" name="nombre" required placeholder="Ej. Carlos Restrepo" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 text-sm transition">
                         </div>
+                        
                         <div>
-                            <label class="block text-xs font-semibold text-slate-300 mb-1">Correo Electrónico</label>
-                            <input type="email" required placeholder="carlos@empresa.com" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 text-sm">
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Correo Electrónico</label>
+                            <input type="email" name="email" required placeholder="carlos@empresa.com" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 text-sm transition">
                         </div>
+                        
                         <div>
-                            <label class="block text-xs font-semibold text-slate-300 mb-1">Interés Principal</label>
-                            <select class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-blue-500 text-sm">
-                                <option>Asesoría Estratégica & Diagnóstico Comercial</option>
-                                <option>Coaching de Equipos y Liderazgo (PNL)</option>
-                                <option>Gestión Financiera Comercial & Incentivos</option>
-                                <option>Conferencias / Capacitaciones / Charlas</option>
-                                <option>Otro tema o consulta general</option>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Interés Principal</label>
+                            <select name="servicio" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white focus:outline-none focus:border-blue-500 text-sm transition">
+                                <option value="Asesoria Estrategica">Asesoría Estratégica & Diagnóstico Comercial</option>
+                                <option value="Coaching Equipos">Coaching de Equipos y Liderazgo (PNL)</option>
+                                <option value="Gestion Financiera">Gestión Financiera Comercial & Incentivos</option>
+                                <option value="Capacitacion">Conferencias / Capacitaciones / Talleres</option>
+                                <option value="Consulta General">Consulta general / Marca personal</option>
                             </select>
                         </div>
+                        
                         <div>
-                            <label class="block text-xs font-semibold text-slate-300 mb-1">Mensaje breve o contexto de tu empresa</label>
-                            <textarea rows="3" placeholder="Cuéntame brevemente tu reto actual..." class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 text-sm"></textarea>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Mensaje o reto actual</label>
+                            <textarea name="mensaje" rows="3" required placeholder="Cuéntame brevemente el contexto de tu empresa..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 text-sm transition"></textarea>
                         </div>
-                        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-teal-500 text-white font-bold text-sm hover:from-blue-500 hover:to-teal-400 transition shadow-lg shadow-blue-600/20">
-                            Enviar Mensaje
+                        
+                        <button type="submit" id="submit-btn" class="w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 to-teal-500 text-white font-bold text-sm tracking-wide uppercase hover:from-blue-500 hover:to-teal-400 transition shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2">
+                            <span>Enviar Mensaje</span>
                         </button>
+
+                        <div id="form-status" class="hidden text-center text-xs p-3 rounded-xl"></div>
                     </form>
 
-                    <div class="pt-6 border-t border-slate-700/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+                    <!-- Acceso directo por WhatsApp -->
+                    <div class="pt-4 border-t border-slate-800 text-center space-y-2">
+                        <span class="text-xs text-slate-400">¿Prefieres agilidad? Escríbeme directamente:</span>
+                        <a href="https://wa.me/573000000000?text=Hola%20Luis%20Esteban,%20vi%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20tus%20servicios" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition shadow-md shadow-emerald-950/40">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.771.815 2.791.815 3.178 0 5.766-2.587 5.767-5.766.001-3.182-2.585-5.769-5.767-5.769zm10.222 5.768c-.001 5.642-4.588 10.228-10.222 10.228-1.785 0-3.488-.466-4.991-1.285l-5.617 1.472 1.503-5.485c-.89-1.554-1.364-3.328-1.364-5.158 0-5.643 4.588-10.229 10.222-10.229 5.641 0 10.269 4.586 10.269 10.229zm-10.222-11.94c-6.592 0-11.94 5.348-11.94 11.94 0 2.106.549 4.129 1.588 5.926l-1.679 6.13 6.277-1.646c1.734.981 3.708 1.53 5.754 1.53 6.592 0 11.94-5.348 11.94-11.94 0-6.592-5.348-11.94-11.94-11.94z"/></svg>
+                            <span>Contactar por WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
                         <span>Apartadó · Medellín · Antioquia, Colombia</span>
                         <a href="mailto:luisestebanc@gmail.com" class="text-teal-400 hover:underline">luisestebanc@gmail.com</a>
                     </div>
@@ -452,30 +679,131 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-slate-950 text-slate-500 py-10 border-t border-slate-900 text-xs">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p>© 2026 Luis Esteban Cárdenas Osorio. Todos los derechos reservados.</p>
-            <div class="flex space-x-6">
-                <a href="#inicio" class="hover:text-slate-300 transition">Inicio</a>
-                <a href="#servicios" class="hover:text-slate-300 transition">Servicios</a>
-                <a href="#articulos" class="hover:text-slate-300 transition">Artículos</a>
-                <a href="#contacto" class="hover:text-slate-300 transition">Contacto</a>
+    <footer class="bg-slate-950 text-slate-500 py-12 border-t border-slate-900 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="space-y-1 text-center sm:text-left">
+                <p class="text-slate-300 font-bold">Luis Esteban Cárdenas Osorio</p>
+                <p>© 2026 Todos los derechos reservados.</p>
+            </div>
+            <div class="flex space-x-6 text-slate-400 font-medium">
+                <a href="#inicio" class="hover:text-white transition">Inicio</a>
+                <a href="#servicios" class="hover:text-white transition">Servicios</a>
+                <a href="#metodologia" class="hover:text-white transition">Metodología</a>
+                <a href="#articulos" class="hover:text-white transition">Artículos</a>
+                <a href="#contacto" class="hover:text-white transition">Contacto</a>
             </div>
         </div>
     </footer>
 
-    <!-- SCRIPT DE NAVEGACIÓN MOBILE -->
+    <!-- SCRIPTS DE INTERACCIÓN Y ANIMACIÓN -->
     <script>
+        // 1. Barra de progreso de lectura
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scroll-progress').style.width = scrolled + '%';
+        });
+
+        // 2. Menú Mobile
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
         document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
+            link.addEventListener('click', () => menu.classList.add('hidden'));
+        });
+
+        // 3. Animaciones al hacer scroll (Reveal on Scroll con IntersectionObserver)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+        // 4. Filtro de Artículos en tiempo real
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const articleCards = document.querySelectorAll('.article-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-blue-700', 'text-white');
+                    b.classList.add('bg-white', 'text-slate-600');
+                });
+                btn.classList.remove('bg-white', 'text-slate-600');
+                btn.classList.add('bg-blue-700', 'text-white');
+
+                const filter = btn.getAttribute('data-filter');
+                articleCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
         });
+
+        // 5. Acordeón interactivo FAQ
+        document.querySelectorAll('.faq-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('.faq-icon');
+                content.classList.toggle('hidden');
+                icon.textContent = content.classList.contains('hidden') ? '+' : '−';
+            });
+        });
+
+        // 6. Formulario Formspree AJAX
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        const submitBtn = document.getElementById('submit-btn');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                if (contactForm.action.includes('TU_CODIGO_AQUI')) {
+                    alert('Para recibir los mensajes en tu correo personal, reemplaza "TU_CODIGO_AQUI" por tu código gratuito de Formspree en el archivo index.html.');
+                    return;
+                }
+
+                const originalText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span>Enviando mensaje...</span>';
+                formStatus.className = 'hidden';
+
+                const formData = new FormData(contactForm);
+
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        formStatus.className = 'block text-center text-xs p-3.5 rounded-xl bg-emerald-900/70 border border-emerald-500/50 text-emerald-200';
+                        formStatus.innerText = '¡Gracias! Tu mensaje ha sido enviado exitosamente. Te responderé en breve a tu correo.';
+                        contactForm.reset();
+                    } else {
+                        const data = await response.json();
+                        formStatus.className = 'block text-center text-xs p-3.5 rounded-xl bg-amber-900/70 border border-amber-500/50 text-amber-200';
+                        formStatus.innerText = data.errors ? data.errors.map(err => err.message).join(', ') : 'Ocurrió un detalle al procesar el mensaje. Por favor intenta de nuevo.';
+                    }
+                } catch (error) {
+                    formStatus.className = 'block text-center text-xs p-3.5 rounded-xl bg-rose-900/70 border border-rose-500/50 text-rose-200';
+                    formStatus.innerText = 'Error de conexión. Puedes escribirme directamente a luisestebanc@gmail.com.';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                }
+            });
+        }
     </script>
 </body>
 </html>
